@@ -107,8 +107,8 @@ public class ScCucumberExtension extends NotIndexedCucumberExtension implements 
       Collection<ScMethodCall> methodCalls = PsiTreeUtil.findChildrenOfType(psiFile, ScMethodCall.class);
       for(ScMethodCall methodCall : methodCalls) {
         ScExpression invokedExpr = methodCall.getInvokedExpr();
+        //todo surely there's a better way to check that these are methods from the DSL rather than just string checks
         if(invokedExpr.getText().equals("When") || invokedExpr.getText().equals("Then") || invokedExpr.getText().equals("And") || invokedExpr.getText().equals("Given")) {
-          System.out.println(methodCall.getClass() +  " text:" + methodCall.getText() + " invoking " + invokedExpr.getText());
           ScArgumentExprList args = methodCall.args();
           ScExpression[] expressions = args.exprsArray();
           if(expressions.length == 1 && expressions[0] instanceof ScLiteral) {
