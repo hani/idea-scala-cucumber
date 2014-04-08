@@ -15,10 +15,8 @@
           <root url="file://$MODULE_DIR$/lib" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="file://$USER_HOME$/AppData/Local/Temp/intellijad" />
-        </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/../plugin/lib" recursive="false" />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
       </library>
     </orderEntry>
   </component>
