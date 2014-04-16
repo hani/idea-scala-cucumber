@@ -10,7 +10,6 @@ import com.intellij.psi.search.*;
 import com.intellij.psi.search.searches.ReferencesSearch;
 import com.intellij.util.Processor;
 import com.intellij.util.QueryExecutor;
-import net.formicary.scala.CucumberScalaUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.plugins.cucumber.CucumberUtil;
 import org.jetbrains.plugins.cucumber.steps.search.CucumberStepSearchUtil;
@@ -39,11 +38,11 @@ public class ScalaJavaStepDefinitionSearch implements QueryExecutor<PsiReference
       return true;
     }
 
-    final String regexp = CucumberScalaUtil.getPatternFromStepDefinition(method);
+    String regexp = null;
+//    final String regexp = CucumberScalaUtil.getPatternFromStepDefinition(method);
     if (regexp == null) {
       return true;
     }
-
     final String word = CucumberUtil.getTheBiggestWordToSearchByIndex(regexp);
     if (StringUtil.isEmpty(word)) {
       return true;
