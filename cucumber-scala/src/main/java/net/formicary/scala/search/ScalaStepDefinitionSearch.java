@@ -15,7 +15,7 @@ import org.jetbrains.plugins.cucumber.CucumberUtil;
 import org.jetbrains.plugins.cucumber.steps.search.CucumberStepSearchUtil;
 import org.jetbrains.plugins.scala.lang.psi.api.base.patterns.ScReferencePattern;
 
-public class ScalaJavaStepDefinitionSearch implements QueryExecutor<PsiReference, ReferencesSearch.SearchParameters> {
+public class ScalaStepDefinitionSearch implements QueryExecutor<PsiReference, ReferencesSearch.SearchParameters> {
   @Override
   public boolean execute(@NotNull final ReferencesSearch.SearchParameters queryParameters, @NotNull final Processor<PsiReference> consumer) {
     final PsiElement myElement = queryParameters.getElementToSearch();
