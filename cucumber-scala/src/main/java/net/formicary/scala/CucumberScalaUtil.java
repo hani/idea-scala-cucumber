@@ -18,14 +18,16 @@ public class CucumberScalaUtil {
     if(invokedExpr instanceof ScReferenceExpression) {
       PsiElement resolved = ((ScReferenceExpression)invokedExpr).resolve();
       if(resolved instanceof ScReferencePattern) {
-        PsiClass containingClass = ((ScReferencePattern)resolved).getContainingClass();
-        if(containingClass != null) {
-          String qualifiedName = containingClass.getQualifiedName();
-          if(qualifiedName != null && qualifiedName.startsWith("cucumber.api.scala")) {
-            return true;
-          }
-        }
+        return CucumberScalaUtil.isCucumberClass(((ScReferencePattern)resolved).getContainingClass());
       }
+    }
+    return false;
+  }
+  
+  public static boolean isCucumberClass(PsiClass containingClass) {
+    if(containingClass != null) {
+      String qualifiedName = containingClass.getQualifiedName();
+      return qualifiedName != null && qualifiedName.startsWith("cucumber.api.scala");          
     }
     return false;
   }
